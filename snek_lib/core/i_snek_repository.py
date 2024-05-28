@@ -1,5 +1,5 @@
 from abc import abstractmethod, ABC
-from typing import Callable
+from typing import Callable, List
 
 from snek_lib.model.snek import Snek
 from snek_lib.model.snek_id import SnekID
@@ -7,6 +7,11 @@ from snek_lib.model.snek_id import SnekID
 
 class ISnekRepository(ABC):
     """Generic API for a repository service handling sneks"""
+
+    @abstractmethod
+    def list_sneks(self) -> List[SnekID]:
+        """Return a list of snek IDs corresponding to each snek registered
+        with the data store"""
 
     @abstractmethod
     def put_snek(self, snek_id: SnekID, snek: Snek) -> None:
