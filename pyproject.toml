@@ -6,6 +6,9 @@ authors = [
     { name = "Frank Longford", email = "flongford@enthought.com" },
 ]
 readme = "README.md"
+dependencies = [
+  "fastapi",
+]
 
 [build-system]
 requires = [
