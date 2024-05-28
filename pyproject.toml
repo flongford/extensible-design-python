@@ -1,0 +1,15 @@
+[project]
+name = "my-extensible-package"
+version = "0.0.1"
+description = "Example project for extensible design patterns in Python"
+authors = [
+    { name = "Frank Longford", email = "flongford@enthought.com" },
+]
+readme = "README.md"
+
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
