@@ -13,3 +13,6 @@ requires = [
     "wheel",
 ]
 build-backend = "setuptools.build_meta"
+
+[project.entry-points."snek_repository_factories"]
+fake = "snek_lib.addons.fake_snek_repository:FakeSnekRepository"
