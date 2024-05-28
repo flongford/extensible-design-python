@@ -22,7 +22,7 @@ class ISnekRepository(ABC):
         """Return snek with corresponding ID from data store"""
 
     @abstractmethod
-    def delete_snek(self, snek_id: SnekID) -> Snek:
+    def delete_snek(self, snek_id: SnekID) -> None:
         """Remove snek with corresponding ID from data store"""
 
 
