@@ -1,19 +1,25 @@
 import argparse
-from typing import Generator
+from typing import Generator, Optional
 
-from snek_lib.core.i_snek_repository import ISnekRepository
+import httpx
+
 from snek_lib.model.snek import Snek
-from snek_lib.utilities import load_snek_repository_factory
 
 SNEK_REPOSITORY_BACKEND = "fake"
 
 
 def load_all_sneks(
-    snek_repository: ISnekRepository
+    snek_host_url: str,
+    name: Optional[str] = None
 ) -> Generator[Snek, None, None]:
     """Return all sneks registered in a given snek repository"""
-    for snek_id in snek_repository.list_sneks():
-        yield snek_repository.get_snek(snek_id)
+    url = snek_host_url + "/sneks"
+    if name:
+        url += f"?name={name}"
+    response = httpx.get(url)
+    response.raise_for_status()
+    for snek_data in response.json()["sneks"].values():
+        yield Snek(**snek_data)
 
 
 def main():
@@ -21,18 +27,19 @@ def main():
     parser.add_argument(
         "--type",
         type=str,
-        dest="snek_id",
+        dest="snek_name",
         help="Snek to load",
+    )
+    parser.add_argument(
+        "--snek-host-url",
+        type=str,
+        help="Host for Snek API",
+        default="http://localhost:8000"
     )
 
     args = parser.parse_args()
 
-    snek_repository = load_snek_repository_factory(SNEK_REPOSITORY_BACKEND)()
-    if args.snek_id is None:
-        for snek in load_all_sneks(snek_repository):
-            print(f"{snek.name}:\n{snek.content}")
-    else:
-        snek = snek_repository.get_snek(args.snek_id)
+    for snek in load_all_sneks(args.snek_host_url, name=args.snek_name):
         print(f"{snek.name}:\n{snek.content}")
 
 

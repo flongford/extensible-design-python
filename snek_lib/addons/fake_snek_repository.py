@@ -10,7 +10,7 @@ class FakeSnekRepository(ISnekRepository):
     def __init__(self):
         self._store = {
             SnekID("normal"): Snek(
-                name="Normal",
+                name="normal",
                 content="""\
                     --..,_                     _,.--.
                        `'.'.                .'`__ o  `;__.
@@ -20,7 +20,7 @@ class FakeSnekRepository(ISnekRepository):
                 """
             ),
             SnekID("fancy"): Snek(
-                name="Fancy",
+                name="fancy",
                 content="""\
                                           _,..,,,_
                                      '``````^~"-,_`"-,_
@@ -37,7 +37,7 @@ class FakeSnekRepository(ISnekRepository):
                 """
             ),
             SnekID("cute"): Snek(
-                name="Cute",
+                name="cute",
                 content=r"""
                             /^\/^\
                           _|__|  O|
