@@ -1,4 +1,5 @@
 from abc import abstractmethod, ABC
+from typing import Callable
 
 from snek_lib.model.snek import Snek
 from snek_lib.model.snek_id import SnekID
@@ -18,3 +19,8 @@ class ISnekRepository(ABC):
     @abstractmethod
     def delete_snek(self, snek_id: SnekID) -> str:
         """Remove snek with corresponding ID from data store"""
+
+
+# Zero-argument callable that instantiates a concrete implementation of
+# ISnekRepository
+ISnekRepositoryFactory = Callable[[], ISnekRepository]
