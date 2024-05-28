@@ -18,7 +18,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project.entry-points.console_scripts]
-snek = "snek_lib.cli.__main__:main"
+snek = "snek_lib.client.__main__:main"
 
 [project.entry-points."snek_repository_factories"]
 fake = "snek_lib.addons.fake_snek_repository:FakeSnekRepository"
