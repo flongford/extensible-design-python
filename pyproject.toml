@@ -1,7 +1,7 @@
 [project]
-name = "my-extensible-package"
+name = "snek-lib"
 version = "0.0.1"
-description = "Example project for extensible design patterns in Python"
+description = "Example of extensible design patterns in Python."
 authors = [
     { name = "Frank Longford", email = "flongford@enthought.com" },
 ]
