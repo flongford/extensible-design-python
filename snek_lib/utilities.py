@@ -1,7 +1,7 @@
 import importlib.metadata
 from typing import Optional
 
-from snek_lib.i_snek_repository import ISnekRepositoryFactory
+from snek_lib.core.i_snek_repository import ISnekRepositoryFactory
 
 SNEK_REPOSITORY_GROUP = "snek_repository_factories"
 
