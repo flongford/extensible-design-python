@@ -39,8 +39,8 @@ def main():
 
     args = parser.parse_args()
 
-    for snek in load_all_sneks(args.snek_host_url, name=args.snek_name):
-        print(f"{snek.name}:\n{snek.content}")
+    for snek in load_sneks(args.snek_host_url, name=args.snek_name):
+        print(snek)
 
 
 if __name__ == '__main__':
