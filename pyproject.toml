@@ -22,3 +22,4 @@ snek = "snek_lib.client.__main__:main"
 
 [project.entry-points."snek_repository_factories"]
 fake = "snek_lib.addons.fake_snek_repository:FakeSnekRepository"
+local = "snek_lib.addons.local_snek_repository:local_snek_repository_factory"
