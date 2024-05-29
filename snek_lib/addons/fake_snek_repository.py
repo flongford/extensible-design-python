@@ -3,62 +3,13 @@ from typing import List
 from snek_lib.core.i_snek_repository import ISnekRepository
 from snek_lib.model.snek import Snek
 from snek_lib.model.snek_id import SnekID
+from snek_lib.utilities import bootstrap_sneks
 
 
 class FakeSnekRepository(ISnekRepository):
 
     def __init__(self):
-        self._store = {
-            SnekID("normal"): Snek(
-                name="normal",
-                content="""\
-                    --..,_                     _,.--.
-                       `'.'.                .'`__ o  `;__.
-                          '.'.            .'.'`  '---'`  `
-                            '.`'--....--'`.'
-                              `'--....--'`
-                """
-            ),
-            SnekID("fancy"): Snek(
-                name="fancy",
-                content="""\
-                                          _,..,,,_
-                                     '``````^~"-,_`"-,_
-                       .-~c~-.                    `~:. ^-.
-                   `~~~-.c    ;                      `:.  `-,     _.-~~^^~:.
-                         `.   ;      _,--~~~~-._       `:.   ~. .~          `.
-                          .` ;'   .:`           `:       `:.   `    _.:-,.    `.
-                        .' .:   :'    _.-~^~-.    `.       `..'   .:      `.    '
-                       :  .' _:'   .-'        `.    :.     .:   .'`.        :    ;
-                       :  `-'   .:'             `.    `^~~^`   .:.  `.      ;    ;
-                        `-.__,-~                  ~-.        ,' ':    '.__.`    :'
-                                                     ~--..--'     ':.         .:'
-                                                                     ':..___.:'
-                """
-            ),
-            SnekID("cute"): Snek(
-                name="cute",
-                content=r"""
-                            /^\/^\
-                          _|__|  O|
-                    \/     /~     \_/ \
-                    \____|__________/  \
-                         \_______      \
-                                 `\     \                 \
-                                   |     |                  \
-                                  /      /                    \
-                                 /     /                       \
-                               /      /                         \ \
-                              /     /                            \  \
-                            /     /             _----_            \   \
-                           /     /           _-~      ~-_         |   |
-                          (      (        _-~    _--_    ~-_     _/   |
-                           \      ~-____-~    _-~    ~-_    ~-_-~    /
-                             ~-_           _-~          ~-_       _-~ 
-                                ~--______-~                ~-___-~
-                """
-            ),
-        }
+        self._store = bootstrap_sneks()
 
     def list_sneks(self) -> List[SnekID]:
         """Return a list of snek IDs corresponding to each snek registered
