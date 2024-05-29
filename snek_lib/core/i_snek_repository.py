@@ -29,6 +29,6 @@ class ISnekRepository(ABC):
         store"""
 
 
-# Zero-argument callable that instantiates a concrete implementation of
-# ISnekRepository
+# Zero-argument callable that instantiates a concrete
+# implementation of ISnekRepository
 ISnekRepositoryFactory = Callable[[], ISnekRepository]

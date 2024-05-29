@@ -6,7 +6,7 @@ import httpx
 from snek_lib.model.snek import Snek
 
 
-def load_sneks(
+def download_sneks(
     snek_host_url: str,
     name: Optional[str] = None
 ) -> Generator[Snek, None, None]:
@@ -36,10 +36,12 @@ def main():
         help="Host for Snek API",
         default="http://localhost:8000"
     )
-
     args = parser.parse_args()
 
-    for snek in load_sneks(args.snek_host_url, name=args.snek_name):
+    for snek in download_sneks(
+        args.snek_host_url,
+        name=args.snek_name
+    ):
         print(snek)
 
 
