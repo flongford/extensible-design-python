@@ -5,14 +5,14 @@ import httpx
 
 from snek_lib.model.snek import Snek
 
-SNEK_REPOSITORY_BACKEND = "fake"
 
-
-def load_all_sneks(
+def load_sneks(
     snek_host_url: str,
     name: Optional[str] = None
 ) -> Generator[Snek, None, None]:
-    """Return all sneks registered in a given snek repository"""
+    """Return all sneks registered in a given snek repository, optionally
+    filtering by name.
+    """
     url = snek_host_url + "/sneks"
     if name:
         url += f"?name={name}"
