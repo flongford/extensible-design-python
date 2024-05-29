@@ -11,13 +11,9 @@ from snek_lib.utilities import load_snek_repository_factory, bootstrap_sneks
 
 def create_app() -> FastAPI:
     """
-    Entry point for faskapi / uvicorn.
-
-    Start uvicorn with (for example):
+    Entry point for faskapi / uvicorn server (for example):
 
         uvicorn --factory snek_lib.server.app:create_app
-
-    This function returns a ASGI app.
     """
     app = FastAPI(
         title="Snek API",
@@ -26,12 +22,6 @@ def create_app() -> FastAPI:
     snek_repository_factory = load_snek_repository_factory(
         factory_name=os.getenv("SNEK_REPOSITORY_FACTORY_NAME")
     )
-
-    # Ensure bootstrapped sneks are uploaded to data store upon
-    # deployment
-    snek_repository = snek_repository_factory()
-    for snek_id, snek in bootstrap_sneks().items():
-        snek_repository.put_snek(snek_id, snek)
 
     @app.get("/sneks")
     def get_sneks(
@@ -50,3 +40,15 @@ def create_app() -> FastAPI:
         }
 
     return app
+
+
+def create_bootstrapped_app() -> FastAPI:
+    # Ensure bootstrapped sneks are uploaded to data store upon
+    # deployment
+    snek_repository = load_snek_repository_factory(
+        factory_name=os.getenv("SNEK_REPOSITORY_FACTORY_NAME")
+    )()
+    for snek_id, snek in bootstrap_sneks().items():
+        snek_repository.put_snek(snek_id, snek)
+
+    return create_app()

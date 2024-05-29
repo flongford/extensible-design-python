@@ -10,20 +10,23 @@ class ISnekRepository(ABC):
 
     @abstractmethod
     def list_sneks(self) -> List[SnekID]:
-        """Return a list of snek IDs corresponding to each snek registered
-        with the data store"""
+        """Return a list of snek IDs corresponding to each snek
+        registered with the data store"""
 
     @abstractmethod
     def put_snek(self, snek_id: SnekID, snek: Snek) -> None:
-        """Add or update snek with corresponding ID in data store"""
+        """Add or update snek with corresponding ID in data
+        store"""
 
     @abstractmethod
     def get_snek(self, snek_id: SnekID) -> Snek:
-        """Return snek with corresponding ID from data store"""
+        """Return snek with corresponding ID from data
+        store"""
 
     @abstractmethod
     def delete_snek(self, snek_id: SnekID) -> None:
-        """Remove snek with corresponding ID from data store"""
+        """Remove snek with corresponding ID from data
+        store"""
 
 
 # Zero-argument callable that instantiates a concrete implementation of
