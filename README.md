@@ -47,7 +47,7 @@ Eventually, an unconvinced engineering manager steps forward:
 _"But our existing customers' IT departments have differing policies over the kind of technologies that they can 
 adopt internally. How can we cater for all this complexity?"_
 
-This time the VP R&D looks concerned in deep thought, and takes a while to respond:
+This time the VP R&D looks concerned and takes a while to contemplate in deep thought, before responding:
 
 _"Well we might not be able to cater for every scenario, but in that case our customers should be able to contribute 
 their own snek data stores, just as they were able to contribute their own sneks."_
