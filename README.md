@@ -4,6 +4,8 @@ Exploration of extensible design patterns in Python, heavily influenced by Amir 
 ["Python Entry Points Explained"](https://amir.rachum.com/python-entry-points/) article.
 
 Further reading:
+- Setuptools Entry Points: https://setuptools.pypa.io/en/latest/userguide/entry_point.html
+- Python `importlib` package: https://docs.python.org/3/library/importlib.html
 - Architecture Patterns with Python (repository pattern): https://www.cosmicpython.com/book/chapter_02_repository.html
 
 ## Context
@@ -25,13 +27,17 @@ Intrigued, you listen in on the conversation as a product owner tries to defend 
 _"But our customers have always installed sneks and accessed them via a command line tool. In this new design,
 where would they get them from?"_
 
+Unpeturbed, the VP R&D provides an instant response:
+
 _"A remote snek data store that can be accessed via a HTTP API."_
 
-A member of the cyber-security team wades in:
+A member of the cyber-security team then wades in with a follow-up question:
 
 _"But our customers are very concerned about the privacy of their sneks. They want to be able to share sneks
 internally without risking IP leakage across the open internet. The current market-leading SaaS solutions don't cater
 for this level of data security."_
+
+The VP R&D needs to think for a short while, but quickly comes up with a solution:
 
 _"That's fine, we'll sell them their own SaaS platform that they can deploy internally. Their users will still get
 the same product, it'll just be managed by their own internal IT group, rather than by us."_
@@ -39,16 +45,20 @@ the same product, it'll just be managed by their own internal IT group, rather t
 Eventually, an unconvinced engineering manager steps forward:
 
 _"But our existing customers' IT departments have differing policies over the kind of technologies that they can 
-adopt internally. How can we cater for this?"_
+adopt internally. How can we cater for all this complexity?"_
+
+This time the VP R&D looks concerned in deep thought, and takes a while to respond:
 
 _"Well we might not be able to cater for every scenario, but in that case our customers should be able to contribute 
 their own snek data stores, just as they were able to contribute their own sneks."_
 
 You slip away before being pulled into the conversation, both excited by the VP R&D's vision but also weary about the
-leap into uncharted territory that it may require.
+leap into uncharted territory that it may require...
 
 
 # Installation Guide
+
+_Requirements: Python 3.10+_
 
 ### Build environment
 ```commandline
